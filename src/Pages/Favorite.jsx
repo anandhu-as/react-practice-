@@ -15,9 +15,10 @@ const Favorite = ({ favorite }) => {
         <div className="favorites-list">
           {favorite.map((movie, index) => (
             <div key={index} className="favorite-item">
-              <img src={`${IMAGE_BASE_URL+movie.poster_path}`} alt={movie.title} />
+              <img src={`${IMAGE_BASE_URL + movie.poster_path}`} alt={movie.title} />
               <h4>{movie.title}</h4>
               <p>{movie.release_date}</p>
+              <p>{movie.overview}</p>
             </div>
           ))}
         </div>

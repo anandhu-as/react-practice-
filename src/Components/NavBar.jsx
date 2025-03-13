@@ -4,16 +4,16 @@ import "../css/Navbar.css";
 
 const NavBar = () => {
   return (
-    <div className="navbar">
+    <nav className="navbar">
       <div className="navbar-brand">
-        <Link to="/">Moyammad's movieApp 💦</Link>
+        <Link to="/">Watchit🎬   </Link>
       </div>
       <div className="navbar-links">
         <Link to="/" className="nav-link">Home</Link>
         <Link to="/favorites" className="nav-link">Favorites</Link>
         <Link to="/about" className="nav-link">About</Link>
       </div>
-    </div>
+    </nav>
   );
 };
 

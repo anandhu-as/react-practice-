@@ -3,7 +3,7 @@ import MovieCard from '../Components/MovieCard';
 import "../css/Home.css";
 import { getPopularMovies, searchMovie } from '../api';
 
-const Home = ({ setFavorite }) => {
+const Home = ({ setFavorite ,favorite}) => {
     const [movies, setMovies] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     const [error, setError] = useState(null);
@@ -21,7 +21,7 @@ const Home = ({ setFavorite }) => {
                 setLoading(false);
             }
         };
-        
+
         loadPopularMovies();
     }, []);
 
@@ -44,12 +44,12 @@ const Home = ({ setFavorite }) => {
     return (
         <div className='home'>
             <form className="search-form" onSubmit={handleSearch}>
-                <input 
-                    value={searchQuery} 
-                    onChange={(e) => setSearchQuery(e.target.value)} 
-                    type="text" 
-                    placeholder='Search for movies' 
-                    className='search-input' 
+                <input
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    type="text"
+                    placeholder='Search for movies'
+                    className='search-input'
                 />
                 <button type='submit' className='search-button'>Search</button>
             </form>
@@ -60,9 +60,10 @@ const Home = ({ setFavorite }) => {
                 <div className='loading'>Loading....</div>
             ) : (
                 <div className="movies-grid">
+                   
                     {movies.length > 0 ? (
                         movies.map((movie) => (
-                            <MovieCard key={movie.id} {...movie} setFavorite={setFavorite} />
+                            <MovieCard key={movie.id} {...movie} setFavorite={setFavorite} favorite={favorite}/>
                         ))
                     ) : (
                         <div>No movies found</div>

@@ -7,16 +7,15 @@ import NavBar from './Components/NavBar';
 import About from './Pages/About';
 
 const App = () => {
-  const [favorite, setFavorite] = useState([]); // State for favorite movies
-
+  const [favorite, setFavorite] = useState([]); 
   return (
     <div>
       <NavBar />
       <main className="main-content">
         <Routes>
-          <Route path="/" element={<Home setFavorite={setFavorite} />} />
+          <Route path="/" element={<Home setFavorite={setFavorite} favorite={favorite} />} />
           <Route path="/favorites" element={<Favorite favorite={favorite} />} />
-           <Route path="/about" element={<About />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
     </div>

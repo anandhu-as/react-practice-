@@ -2,12 +2,13 @@ import React from 'react';
 import "../css/MovieCard.css";
 import { IMAGE_BASE_URL } from '../api';
 
-const MovieCard = ({ title, release_date, poster_path, setFavorite }) => {
+const MovieCard = ({ title, release_date, poster_path, setFavorite, favorite ,overview}) => {
     const onLike = () => {
-        const newFavorite = { poster_path, title, release_date };
-        setFavorite(prevFavorites => [...prevFavorites, newFavorite]);
-    };
+        const newFavorite = { poster_path, title, release_date,overview };
+        const isLiked = favorite.some(movie => movie.title === title);//removing duplicate movies
+        !isLiked && setFavorite(prevFavorites => [...prevFavorites, newFavorite]);
 
+    };
     return (
         <div className='movie-card'>
             <div className="movie-poster">
@@ -25,5 +26,4 @@ const MovieCard = ({ title, release_date, poster_path, setFavorite }) => {
         </div>
     );
 };
-
 export default MovieCard;

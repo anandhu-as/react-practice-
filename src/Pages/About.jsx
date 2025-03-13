@@ -6,7 +6,7 @@ const About = () => {
             <div className="about-container">
                 <h1>About Us</h1>
                 <p>
-                    Welcome to <strong>Moyammad's movieApp 💦</strong>, your go-to platform for exploring the best movies!
+                    Welcome to <strong>Watchit</strong>, your go-to platform for exploring the best movies!
                     We provide a collection of popular, trending, and favorite movies for film lovers.
                 </p>
 
@@ -18,7 +18,7 @@ const About = () => {
                     <li>✔️ Enjoy a clean and easy-to-use interface</li>
                 </ul>
 
-                <h1>Made with pain💔</h1>
+                <h1>@anandhu-as</h1>
             </div>
         </div>
     );
