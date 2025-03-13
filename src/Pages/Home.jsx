@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import MovieCard from '../Components/MovieCard';
-import "../css/Home.css"
+import "../css/Home.css";
 import { getPopularMovies, searchMovie } from '../api';
 
-const Home = () => {
+const Home = ({ setFavorite }) => {
     const [movies, setMovies] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     const [error, setError] = useState(null);
@@ -21,6 +21,7 @@ const Home = () => {
                 setLoading(false);
             }
         };
+        
         loadPopularMovies();
     }, []);
 
@@ -60,7 +61,9 @@ const Home = () => {
             ) : (
                 <div className="movies-grid">
                     {movies.length > 0 ? (
-                        movies.map((movie) => <MovieCard key={movie.id} {...movie} />)
+                        movies.map((movie) => (
+                            <MovieCard key={movie.id} {...movie} setFavorite={setFavorite} />
+                        ))
                     ) : (
                         <div>No movies found</div>
                     )}
